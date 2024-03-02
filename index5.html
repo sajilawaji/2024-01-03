@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA 316.1</title>
+    <style>
+        body {
+            font-family: 'Ojuju', sans-serif;
+            background: linear-gradient(to right, #8a6bff, #c6a6ff);
+            color: white;
+        }
+
+        .highlight {
+            background-color: burlywood;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>WHERE ARE JELLYFISH IN GEORGIA?</h1>
+    <h2>At the GA Aquarium Obviously + Tybee Island</h2>
+    <div id="container">
+        <div>
+            <p id="paragraph1">How do I know? Because of the Aquarium website, numerous articles, Google, and because of
+                a
+                anecdotal experience.</p>
+
+            <p id="paragraph2">My jellyfish stings - no pictures documented unfortunately but the memory is still as
+                sharp
+                as the sting in my mind. It was a funny experience but a terrible memory to be honest. That's all.</p>
+
+            <p>Click the jellyfish image to see my source.</p>
+
+
+        </div>
+
+        <button id="button">Click me!</button>
+    </div>
+
+    <div style="max-width: 100%; height: auto;">
+        <a id="jellyfishLink" href="https://www.georgiaaquarium.org/gallery/tropical-diver/">
+            <img src="pexels-zetong-li-1784578.jpg" alt="beautiful orange jellyfish picture"
+                style="max-width: 100%; height: auto; display: block; margin:0 auto;">
+        </a>
+    </div>
+
+    <form id="myForm">
+        <label for="inputField">Enter your name:</label>
+        <input type="text" id="inputField" required>
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        const paragraph1 = document.getElementById('paragraph1');
+        const paragraph2 = document.getElementById('paragraph2');
+        const button = document.getElementById('button');
+        const inputField = document.getElementById('inputField');
+        const myForm = document.getElementById('myForm');
+        const jellyfishLink = document.getElementById('jellyfishLink');
+
+        button.addEventListener('click', () => {
+            paragraph1.textContent = 'Hi there!!! Scroll to the bottom to customize the greeting below...<3';
+            paragraph1.classList.add('highlight');
+        });
+
+        myForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const inputValue = inputField.value;
+            paragraph2.textContent = `Hello, ${inputValue}!`;
+        });
+
+        inputField.addEventListener('input', () => {
+            if (inputField.value.length < 3) {
+                inputField.setCustomValidity('Name must be at least 3 characters long.');
+            } else {
+                inputField.setCustomValidity('');
+            }
+        });
+
+
+        console.log(document.title);
+        console.log(window.innerHeight);
+
+    </script>
+</body>
+
+</html>
